@@ -14,5 +14,5 @@ class FireProcessor(ImageProcessor):
         pass
 
     def _delete_file_after_process(self, path: str):
-        # super()._delete_file_after_process(path)
+        super()._delete_file_after_process(path)
         pass

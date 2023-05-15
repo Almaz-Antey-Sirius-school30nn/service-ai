@@ -25,8 +25,8 @@ def config_logging():
 
 
 if __name__ == '__main__':
-    # config_logging()
-    # logging.info("App starting")
-    # create_folders()
+    config_logging()
+    logging.info("App starting")
+    create_folders()
 
     app.run(port="5001")
