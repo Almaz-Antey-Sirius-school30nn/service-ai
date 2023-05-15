@@ -13,7 +13,7 @@ from src.training.utils import Checkpoint
 from src.prediction.analysis import plot_image_prediction
 
 
-def main(path):
+def predict_fire(path):
     images_zip_path = path
     chekpoint_file_path = "model\\checkpoints.pth"
     train_mean_std_file_path = "model\\mean-std.npy"
@@ -28,7 +28,7 @@ def main(path):
         device = 'cuda' if cuda.is_available() else 'cpu'
 
     # Get the images and masks.
-    print('Loading the image...')
+    # print('Loading the image...')
     image = load_image_from_zip_by_index(
         images_zip_path, resize_shape=RESIZE_SHAPE, image_index=0)
 
@@ -48,7 +48,7 @@ def main(path):
     image_tensor = to_tensor(image)
     image_tensor = normalize(image_tensor)
 
-    print('Starting prediction...')
+    # print('Starting prediction...')
     # Add the batch dimension.
     image_tensor = image_tensor.unsqueeze(0)
     # Move the image to the device.
@@ -67,10 +67,10 @@ def main(path):
     predicted_mask = predicted_mask.cpu().numpy()
 
     # Plot the image and the mask.
-    print('Starting plotting...')
+    # print('Starting plotting...')
 
     return plot_image_prediction(image, predicted_mask, resize_shape=ORIGINAL_SHAPE)
 
 
 if __name__ == '__main__':
-    print(main("ImgForPred\\Grass.png"))
+    print(predict_fire("ImgForPred\\Grass.png"))
