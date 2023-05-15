@@ -12,19 +12,22 @@ pip install -r requirements.txt
 ```
 * Поздравляю, вы установили все нужные для работы библиотеки :)
 ***
-<!-- #### 2. Настройка системы
+#### 2. Настройка системы
 * Откройте файл config.py
 * Вы увидите такое содержание
 ```sh
-ACCESS_TOKEN = "YOUR_TOKEN"
-
-AI_SERVER_IP = "http://127.0.0.1:5001"
+MCHS_SERVER_ENABLED = False
+MCHS_SERVER_ADDRESS = "http://api.mchs.ru"
+MCHS_REQUEST_HEADERS = {"access_token": ""}
+MCHS_REQUEST_METHOD = "POST"
 ```
-* ACCESS_TOKEN - Он передается в запросе и нужен для авторизации. Замените его на значение (тоже в ковычках). Рекомендуется сделать его сложным (например, взять sha256 хеш)
-* AI_SERVER_IP - Адрес AI сервера (Можно не менять, по умолчанию установлен стандартный адрес)
+* MCHS_SERVER_ENABLED - Включена ли отправка на сервер МЧС (Boolean)
+* MCHS_SERVER_ADDRESS = Стрка с адресом сервера API мтч
+* MCHS_REQUEST_HEADERS = Заголовки (Python dictionary)
+* MCHS_REQUEST_METHOD = метод запросв (POST, GET, и т.д)
 ***
- -->
-#### 2. Запуск
+
+#### 3. Запуск
 * Введите в командной строке (в корне приложения)
 ```sh
 python run.py
